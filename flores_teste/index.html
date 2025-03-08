@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vm sair nunca?</title>
+
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB0WEPz2YWJcX-f46yIjctsaWGXQp35U5U",
+    authDomain: "abra-me.firebaseapp.com",
+    projectId: "abra-me",
+    storageBucket: "abra-me.appspot.com",
+    messagingSenderId: "769376577846",
+    appId: "1:769376577846:web:e7551b1d47f8635f742b97",
+    measurementId: "G-KZWG2N3HJ6"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</head>
+<body>
+    <div id="conteudo">
+        <h2 style="font-size:  9vw; margin: 5vw;" id="titulo">Vamo sair em um date nunca?</h2>
+        <div style="margin: auto;width: 170px;">
+            <a href="file:///c%3A/Users/ryan.nobre/OneDrive/%C3%81rea%20de%20Trabalho/Codigos%20Teste/flores_teste/tela2aceito.html" style="position: fixed;display: block;" class="btn" >VAMO</button>
+            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
+        </div>
+        <br>
+        <div class="heart" style="display: none;"></div>
+    </div>
+        <br>
+        <div class="heart" style="display: none;"></div>
+    </div>
+
+
+</body>
+
+<footer> 
+    <br>
+    <audio style="display: none; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);" id="myAudio" loop controls >
+        <source src="Speechless.mp3" type="audio/mpeg">
+    .
+    </audio>
+</footer>
+
+<style>
+    #conteudo {
+        background: #557ae0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+    .btn {
+        background: black;
+        color: white;
+        border: none;
+        padding: 20px;
+        width: 80px;
+        border-radius: 10px;
+    }
+    .btn2 {
+        background: black;
+        color: white;
+        border: none;
+        padding: 20px;
+        width: 80px;
+        border-radius: 10px;
+    }
+
+    .heart {
+        position: relative;
+        width: 100px;
+        height: 90px;
+        margin: auto;
+    }
+    
+    .heart::before, .heart::after {
+        position: absolute;
+        content: "";
+        top: 40px;
+        width: 52px;
+        height: 80px;
+        border-radius: 50px 50px 0 0; /* rounded top corners */
+        background: red;
+    }
+    
+    .heart::before {
+        left: 50px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+    }
+    
+    .heart::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+</style>
+
+<script>
+    function sim() {
+        
+       // Altera o título e exibe o coração
+       document.getElementById('titulo').innerText = "Parabéns agora é só marcar o dia pra gente sair...";
+       document.querySelector('.heart').style.display = 'block';
+       document.getElementById('myAudio').style.display = 'block';
+       
+       // Toca a música
+       document.getElementById('myAudio').play();
+       
+       //Esconder botao
+      
+       var buttons = document.querySelectorAll('.btn');
+       for (var i = 0; i < buttons.length; i++) {
+           buttons[i].style.display = 'none';}
+  
+   }
+
+   function desvia(btn) {
+       // btn declarado na função
+       btn.style.position = 'absolute';
+       btn.style.bottom = geraPosicao(20, 600);
+       btn.style.left = geraPosicao(20, 600);
+       console.log('opa, desviei...');
+   }
+
+   function geraPosicao(min, max) {
+       return (Math.random() * (max - min) + min) + "%";
+   }
+</script>
+
+</html>
